@@ -19,7 +19,9 @@ const config = {
     path: path.resolve(__dirname, 'build')
   },
  
-  externals: [webpackNodeExternals()]
+  //we already have access to node_modules in backend where we are running it from
+  //so we dont need them in the output bundle.js
+  externals: [webpackNodeExternals()] 
 };
  
 module.exports = merge(baseConfig, config);
